@@ -17,11 +17,20 @@ void solve(){
 
 int main(){
     fast;
+    #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    int n=100;
+    // freopen("output.txt", "w", stdout);
+    #endif
+    vector<string> v = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    int n;
+    cin>>n;
+    string x;
+    cin>>x;
     for(int i=0;i<n;i++){
-        cout<<i<<endl;
+        if(i !=n)
+            cout<<v[(int)(x[i]-48)]<<" ";
+        else    
+            cout<<v[(int)(x[i]-48)];
     }
 
     return 0;
