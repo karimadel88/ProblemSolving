@@ -1,3 +1,4 @@
+//http://codeforces.com/contest/18/problem/C
 #include <bits/stdc++.h>
 using namespace std;
 #define fast ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
@@ -14,12 +15,23 @@ ll powe(ll x, ll y){ x = x%mod, y=y%(mod-1);ll ans = 1;while(y>0){if (y&1){ans =
 void solve(){
 }
 
+int c[100004];
 int main(){
     fast;
     #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    // freopen("out.txt", "w", stdout);
     #endif
-    cout << "hello";
+    int n,cnt=0;
+    cin>>n;
+    int a[n+2];
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+        c[i] = a[i] + c[i-1];
+    }
+    for(int i=1;i<n;i++){
+        if(c[i] == c[n]-c[i])cnt++;
+    }
+    cout<<cnt;
     return 0;
 }
