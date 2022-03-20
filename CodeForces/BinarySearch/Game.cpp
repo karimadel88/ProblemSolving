@@ -18,31 +18,41 @@ bool can(ll a[] ,ll k,ll x){
 }
 void solve(){
 }
-int main () {
-    fast();
-    ll n,q;
-    cin>>n>>q;
-    ll a[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin>>a[i];
-    }
-    
-    while(q--){
-        ll k;
-        cin>>k;
-        ll ans=-1;
-        ll l=0,r=n-1;
-        while(l<=r){
-            ll mid = (l+r)/2;
-            if(can(a,mid,k)){
-                ans = mid;
-                r=mid-1;
-            }else{
-                l=mid+1;
+vector<int> solution(vector<int> &A) {
+    int n = A.size();
+    if(n%2 != 0 )return {};
+    vector<int> res;
+    sort(A.begin(),A.end());
+    for(int i=0;i<n;i++){
+        int chk = false;
+        for (int j = i+1; j < n; j++)
+        {
+            if(2*A[i] == A[j] && A[i] != 2){
+                chk = true;
+                res.push_back(A[i]);
+                int m = res.size();
+                if(m== n/2){
+                    return res;
+                }
             }
         }
-        (ans > -1) ? cout << a[ans]<<endl : cout<<-1<<endl;
+        if(!chk)return {};
+        
     }
+    return res;
+}
 
+int main () {
+        fast();
+        int n;
+        cin>>n;
+        vector<int> v(n,0);
+        auto start1 = clock();
+        for(int i=0;i<n;i++){
+            v[i] = n - i;
+        }     
+        auto start = clock();
+        sort(all(v));
+        auto end = clock();
+        cout<<end-start;
 }
