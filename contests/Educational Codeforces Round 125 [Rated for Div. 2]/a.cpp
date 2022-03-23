@@ -13,30 +13,19 @@ void fast(){
     #endif
 }
 void solve(){
-    int n;
-    cin>>n;
-    ll a[n];
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }
-    sort(a,a+n);
-    if(n==1){
-        cout<<"YES"<<endl;
+    int x,y;
+    cin>>x>>y;
+    if(x==0&&y==0){
+        cout<<0<<endl;
         return;
     }
-    for(int i=0;i<n-1;i++){
-        if((a[i]+a[i+1])%2 ==0 && a[i]!=a[i+1]){
-            cout<<"NO"<<endl;
-            break;
-        }else if ((a[i]+a[i+1])%2 !=0 && a[i]==a[i+1]){
-            cout<<"NO"<<endl;
-            return;
-
-        }else{
-            a[i+1] = a[i] + a[i+1];
-        }
+    ll sq2 = (x*x) + (y*y);
+    float res = sqrt(sq2);
+    if((int)res == res){
+        cout<<1<<endl;
+    }else{
+        cout<<2<<endl;
     }
-    cout<<"YES"<<endl;
 
 }
 int main () {
@@ -45,5 +34,4 @@ int main () {
     cin >> t;
     while(t--)
         solve();
-
 }
