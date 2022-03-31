@@ -13,13 +13,24 @@ void fast(){
     #endif
 }
 void solve(){
+    int l,r,a;
+    cin>>l>>r>>a;
+    int temp = r%a;
+    ll res = r/a + temp;
+    r -= temp+1;
+    if(r>=l){
+        int temp2 = r%a;
+        ll res2 = r/a + temp2;
+        res=max(res,res2);
+    }
+    cout<<res<<endl;
     
 }
 int main () {
     fast();
     int t;
-    cin >> t;
+    cin>>t;
     while(t--)
-        solve();
+       solve();
 
 }
