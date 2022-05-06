@@ -13,12 +13,23 @@ void fast(){
     #endif
 }
 void solve(){
-    double a,b,c,d;
-    cin>>a>>b>>c>>d;
-    double area = a*b;
-    double areaOfR = 0.5*(b-d)*(a-c);
-    cout<<fixed<<setprecision(6)<<area - areaOfR;
-    
+    int n,k;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    cin>>k;
+    for(int i=0;i<k;i++){
+        int x;
+        cin>>x;
+        int l,r;
+        cin>>l>>r;
+
+        if(binary_search(l,r,x));
+    }
+
+    cout<<cnt<<endl;
 
 }
 int main () {

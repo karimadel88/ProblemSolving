@@ -13,15 +13,35 @@ void fast(){
     #endif
 }
 void solve(){
-    int n;
-    cin>>n;
-    set<int>s;
-    while(n--){
+    int n,k;
+    cin>>n>>k;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<k;i++){
         int x;
         cin>>x;
-        s.insert(x);
+        int l = 0,r=n-1;
+        bool ans = false;
+        int mid;
+        while(l<=r){
+            mid = (l+r)/2;
+            if(x == a[mid]){
+                ans = true;
+                break;
+            }else if(a[mid]<x){
+                l= mid+1;
+            }else{
+                r = mid-1;
+            }
+        }
+        if(ans){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
     }
-    cout<<s.size();
 
 }
 int main () {

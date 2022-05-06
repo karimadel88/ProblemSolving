@@ -13,21 +13,16 @@ void fast(){
     #endif
 }
 void solve(){
-    ll a,b;
-    cin>>a>>b;
-    ll c = a;
-    for(int i=1;i<b;i++){
-        c *=a;
-        c = c%10;
-        if(c==0)break;
-    }
-    cout<<c%10<<endl;
+    ll n;
+    cin>>n;
+    cout<<(ll)n*18;
+
 }
 int main () {
     fast();
     int t;
-    cin>>t;
+    t = 1;
     while(t--)
-        solve();
+       solve();
 
 }

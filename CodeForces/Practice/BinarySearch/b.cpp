@@ -1,3 +1,5 @@
+//https://codeforces.com/edu/course/2/lesson/6/1/practice/contest/283911/problem/B
+
 #include <bits/stdc++.h>
 using namespace std;
 #define cin(vec) for(auto& i : vec) cin >> i
@@ -12,20 +14,39 @@ void fast(){
         freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout); 
     #endif
 }
+bool can(int x,int key){
+    return x<=key;
+}
+
 void solve(){
-    int n;
-    cin>>n;
+    int n,k;
+    cin>>n>>k;
     int a[n];
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
-    sort(a,a+n);
-    for(int i=n-1;i>=0;i--){
-        if(sqrt(a[i]) == (int)sqrt(a[i])){
-            continue;
+    for(int i=0;i<k;i++){
+        int x;
+        cin>>x;
+        int l = 0,r=n-1;
+        int m;
+        int ans = -1;
+        while(l<=r){
+            m = (l+r)/2;
+            if(can(a[m],x)){
+                ans = m;
+                l = m+1;
+            }else{
+                r = m-1;
+            }
+
         }
-        cout<<a[i];
-        return;
+        if(ans!=-1){
+            cout<<ans+1<<"\n";
+        }else{
+            cout<<0<<"\n";
+        }
+
     }
 
 }
