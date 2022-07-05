@@ -13,38 +13,38 @@ void fast(){
     #endif
 }
 void solve(){
-    double r,a,b;
-    double PI = 3.141592653589;
-    cin>>r>>a>>b;
-    double first = PI * r * r;
-    double ans = first;
-    while(true || first == 0){
-        r = r*a;
-        // cout<<r<<endl;
-        first =  PI*r*r;
-        ans+=first;
-        if((int)r/(int)b==0){
-            break;
-        }else{
-            r = floor(r/b);
-            // cout<<r<<endl;
-            first = PI * r * r;
-            ans+= first;
+    int n;
+    cin>>n;
+    int a[n];
+    int cnt = 0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i] < 0){
+            cnt++;
         }
-
     }
-    cout<<fixed<<setprecision(6)<<ans<<endl;    
+    for(int i=0;i<n;i++){
+        if(cnt>0){
+            if(a[i] > 0)a[i]*=-1;
+            cnt--;
+        }else{
+            if(a[i]< 0)a[i]*=-1;
+        }   
+    }
+    for(int i=1;i<n;i++){
+        if(a[i]<a[i-1]){
+            cout<<"NO\n";
+            return;
+        }
+    }
+    cout<<"YES\n";
 
 }
 int main () {
     fast();
     int t;
     cin>>t;
-    int i = 1;
-    while(t--){
-       cout<<"Case #"<<i<<": ";
+    while(t--)
        solve();
-       i++;
-    }
 
 }
