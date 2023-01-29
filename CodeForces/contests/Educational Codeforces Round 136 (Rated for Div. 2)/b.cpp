@@ -15,30 +15,32 @@ void fast(){
 void solve(){
     int n;
     cin>>n;
-    map<string,int>m;
-    while(n--){
-        string s;
-        cin>>s;
-        m[s]++;
+    int a[n];
+
+    for(int i=0;i<n;i++) {
+        int x;
+        cin>>x;
+        a[i] = x;
     }
-    int max = 0;
-    std::map<std::string, int>::iterator it = m.begin();
-    int cnt;
-    string res;
-    while(it != m.end()){
-        cnt = it->second;
-        if(cnt>max){
-            max = cnt;
-            res = it->first;
+    for(int i=1;i<n;i++){
+        if(a[i] <= a[i-1] && a[i] !=0){
+            cout<<-1<<endl;
+            return;
+        }else{
+            a[i] = a[i] + a[i-1];
         }
-        it++;
     }
-    cout<<res;
-    
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
 }
 int main () {
     fast();
-
-solve();
+    int t;
+    t = 1;
+    cin>>t;
+    while(t--)
+       solve();
 
 }

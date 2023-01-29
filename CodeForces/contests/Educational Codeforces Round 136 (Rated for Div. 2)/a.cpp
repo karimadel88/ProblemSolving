@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include<map>
 using namespace std;
 #define cin(vec) for(auto& i : vec) cin >> i
 #define fixed(n) fixed << setprecision(n)
@@ -10,30 +9,21 @@ using namespace std;
 void fast(){
     ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
     #ifndef ONLINE_JUDGE
-        freopen("./../input.txt", "r", stdin), freopen("./../output.txt", "w", stdout); 
+        freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout); 
     #endif
 }
-
 void solve(){
-    string s;
-    cin>>s;
-    int n = s.size();
-    map<char,int>m;
-    for(int i=0;i<n;i++){
-        char ch;
-        cin>>ch;
-        m[ch]++;
-    }
-    // sort(m.begin(),m.end(),cmp);
-    for(auto &x:m){
-        cout<<x.first<<" "<<x.second<<endl;
-    }
+    int n,m;
+    cin>>n>>m;
+    cout<<(n/2) + 1 <<" "<<(m/2) + 1<<endl;
+    
+
 
 }
 int main () {
     fast();
     int t;
-    t = 1;
+    cin>>t;
     while(t--)
        solve();
 
