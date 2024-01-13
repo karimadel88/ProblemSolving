@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1705155383 source:d:\learning\problemsolving\dsa\sorting\implementations\selection\main.cpp
+	<iostream>
+	<vector>
+	<string>
+
